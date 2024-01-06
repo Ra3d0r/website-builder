@@ -1,0 +1,8 @@
+node_modules
+.next
+next
+prisma
+next.config.js
+environment.d.ts
+lint-staged.config.js
+.husky

@@ -1,0 +1,9 @@
+node_modules
+.next
+yarn.lock
+package.json
+.*
+prisma
+public
+.md
+.husky

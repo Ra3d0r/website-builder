@@ -1,4 +1,4 @@
-import { SeoHead } from '@/feature/SeoHead/SeoHead';
+import { SeoHead } from '@/feature';
 import { Layout, SignUp } from '@/modules';
 
 export default function RegisterPage() {

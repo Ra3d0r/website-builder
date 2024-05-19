@@ -1,4 +1,4 @@
-import { SeoHead } from '@/feature/SeoHead/SeoHead';
+import { SeoHead } from '@/feature';
 import { Home, Layout } from '@/modules';
 
 const HomePage = () => {

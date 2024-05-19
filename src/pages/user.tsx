@@ -1,4 +1,4 @@
-import { SeoHead } from '@/feature/SeoHead/SeoHead';
+import { SeoHead } from '@/feature';
 import { Layout, User } from '@/modules';
 import { authOptions } from '@/utils';
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';

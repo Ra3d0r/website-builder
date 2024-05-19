@@ -1,6 +1,7 @@
 import type { UserRegister } from '@/api';
 import api from '@/api/instance';
 import { AuthForm, useFormRef } from '@/feature';
+import { useCustomRouter } from '@/hooks';
 import { createUserSchema } from '@/schemas';
 import type { AuthForm as AuthFormType } from '@/types';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -36,13 +37,14 @@ const rhfOptions: UseFormProps<UserRegister> = {
 
 const SignUp = () => {
 	const formRef = useFormRef<UserRegister>();
+	const { shallowPush } = useCustomRouter();
 	const createUser = (data: UserRegister) =>
 		api
 			.post('/user', data)
 			.then(() => {
 				const { methods } = formRef?.current || {};
 				methods?.reset();
-				location.href = '/auth/login';
+				shallowPush('/auth/login');
 			})
 			.catch((err) => {
 				const errorType = err?.response?.data?.errorType;

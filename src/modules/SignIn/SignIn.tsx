@@ -1,5 +1,6 @@
 import type { UserLogin } from '@/api';
 import { AuthForm, useFormRef } from '@/feature';
+import { useCustomRouter } from '@/hooks';
 import { loginUserSchema } from '@/schemas';
 import type { AuthForm as AuthFormType } from '@/types';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -30,6 +31,7 @@ const rhfOptions: UseFormProps<UserLogin> = {
 
 const SignIn = () => {
 	const formRef = useFormRef<UserLogin>();
+	const { shallowPush } = useCustomRouter();
 
 	const createUser = async (data: UserLogin) => {
 		const signInData = await signIn('credentials', {
@@ -46,7 +48,7 @@ const SignIn = () => {
 			return;
 		}
 
-		location.href = '/';
+		shallowPush('/');
 	};
 
 	return (

@@ -3,14 +3,17 @@ import { Layout, User } from '@/modules';
 import { authOptions } from '@/utils';
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import { getServerSession, type Session } from 'next-auth';
+import type { ReactElement } from 'react';
 
 const UserPage = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+	return <User {...props} />;
+};
+
+UserPage.getLayout = function getLayout(page: ReactElement) {
 	return (
 		<>
 			<SeoHead title="User page" />
-			<Layout>
-				<User {...props} />
-			</Layout>
+			<Layout>{page}</Layout>
 		</>
 	);
 };
